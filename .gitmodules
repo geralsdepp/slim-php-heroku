@@ -1,0 +1,6 @@
+[submodule "app/Aplicacion/20"]
+	path = app/Aplicacion/20
+	url = https://github.com/geralsdepp/slim-php-heroku.git
+[submodule "app/Aplicacion2"]
+	path = app/Aplicacion2
+	url = https://github.com/geralsdepp/slim-php-heroku.git
