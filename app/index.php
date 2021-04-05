@@ -1,21 +1,16 @@
 <?php
-error_reporting(-1);
-ini_set('display_errors', 1);
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
-use Slim\Routing\RouteCollectorProxy;
+require_once '../vendor/autoload.php';
 
-require __DIR__ . '/../vendor/autoload.php';
-
-// Instantiate App
-$app = AppFactory::create();
+$app = new \Slim\App([]);
 
 $app->get('[/]', function (Request $request, Response $response) {    
-    $response->getBody()->write("GET => Bienvenido!!! a SlimFramework");
+    $response->getBody()->write("GET => Bienvenido!!! ,a SlimFramework");
     return $response;
 
 });
+
 
 $app->run();
