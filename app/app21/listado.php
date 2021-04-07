@@ -6,8 +6,8 @@
         switch ($listado) {
             case 'usuarios':               
                 $arrayUsuarios = Usuario::getArrayUsuarios($listado);
-                var_dump($arrayUsuarios);
-                //echo Usuario::listarUsurios($arrayUsuarios);
+                
+                echo Usuario::listarUsurios($arrayUsuarios);
                 break;
             
             default:
