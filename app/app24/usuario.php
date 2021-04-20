@@ -73,6 +73,40 @@ class Usuario
         return $retorno;
     }
 
+    public static function listarJson($nombreArchivo)
+    {
+        $retorno = "No se pudo crear la lista";
+        $arrayUsuarios = array();
+        
+        if ($nombreArchivo != null) {
+            $retorno = "";
+            
+            $miArhivo = fopen($nombreArchivo, "r");
+            while (!feof($miArhivo)) {
+                array_push($arrayUsuarios, json_decode(fgets($miArhivo)));                
+            }
+            fclose($miArhivo);
+        }
+        if (count($arrayUsuarios) > 0) {
+            $retorno = $arrayUsuarios;
+        }
+        return $retorno;
+    }
+
+    public static function dibujarListaJson($arrayUsuarios)
+    {
+        $retorno = "";
+        if ($arrayUsuarios != null) {
+            foreach ($arrayUsuarios as $value) {
+                $retorno .= "<ul>";
+                $retorno .= "<li>". $value->nombre . "," . $value->nombre."_".$value->id.".jpg"."</li>";
+                $retorno .= "</ul>";
+            }
+        }
+        return $retorno;
+    }
+
+
     public static function validarUsuario(Usuario $usuario)
     {
         
