@@ -1,5 +1,5 @@
 <?php
-    include "./producto.php";
+    require_once("./producto.php");
     $nombreArchivoJson = "productos.json";
 
     if (isset($_POST["codigoBarras"]) && isset($_POST["nombre"]) && isset($_POST["tipo"]) && 
@@ -11,7 +11,7 @@
         $precio = $_POST["precio"];
 
         $producto = new Producto($codigoBarras, $nombre, $tipo, $stock, $precio);
-    
+        var_dump($producto);
         if ($producto::existenceValidate($producto, $nombreArchivoJson)) {
             $producto::addStock($producto, $nombreArchivoJson);
             echo "Actualizado";        

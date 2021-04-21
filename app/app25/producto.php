@@ -65,6 +65,15 @@ class Producto
         return true;
     }
     
+    static function equals($producto1, $producto2)
+    {
+        $retorno = false;
+        if ($producto1->codigoBarras === $producto2->codigoBarras) {
+            $retorno = true;
+        }
+        return $retorno;
+    }
+
     static function existenceValidate($producto, $nombreArchivo)
     {                
         $retorno = false;
@@ -73,8 +82,8 @@ class Producto
             $arrayProductos = array();
             $arrayProductos = Producto::listar($nombreArchivo);
        
-            foreach ($arrayProductos as $producto) {
-                if ($producto->codigoBarras == $producto->codigoBarras) {
+            foreach ($arrayProductos as $productoJson) {
+                if (Producto::equals($productoJson, $producto)) {
                     $retorno = true;
                     break;
                 }                
